@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Extractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Voice Extractor</h1>
+            <p>Transform your Facebook history into a training corpus.</p>
+        </header>
+
+        <main>
+            <div class="drop-zone" id="drop-zone">
+                <div class="drop-zone-content">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-upload-cloud">
+                        <polyline points="16 16 12 12 8 16"></polyline>
+                        <line x1="12" y1="12" x2="12" y2="21"></line>
+                        <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+                        <polyline points="16 16 12 12 8 16"></polyline>
+                    </svg>
+                    <p>Drag & Drop <strong>any Facebook JSON files</strong> here</p>
+                    <span class="file-status" id="file-status">Waiting for JSON files...</span>
+                </div>
+                <input type="file" id="file-input" multiple hidden>
+            </div>
+
+            <div class="controls">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="lyrics-only">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-label">Lyrics Only (Double Space)</span>
+            </div>
+
+            <button id="process-btn" disabled>Process Files</button>
+
+            <div id="result-area" class="hidden">
+                <p id="success-message"></p>
+                <a id="download-btn" href="#" class="button download">Download My_Voice_Master.txt</a>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
